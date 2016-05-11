@@ -1,4 +1,5 @@
 package Problema;
+
 public class LanceNormal implements Runnable {
 
 	private Incremento incremento;
@@ -12,13 +13,12 @@ public class LanceNormal implements Runnable {
 
 	public void run() {
 		synchronized (incremento) {
-			System.out.println("Iniciando Lance Normal no Leilao"
-					+ leilao.getValorCorrente());
+			System.out.println("Iniciando Lance Normal no Leilao" + leilao.getValorCorrente());
 			int valor = incremento.getValor();
+			System.out.println("o valor com incremento é:"+valor);
 			synchronized (leilao) {
 				leilao.darLance(valor);
-				System.out.println("O valor do produto agora é "
-						+ leilao.getValorCorrente());
+				System.out.println("O valor do produto agora é " + leilao.getValorCorrente());
 			}
 		}
 	}
